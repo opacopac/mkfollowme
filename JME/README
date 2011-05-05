@@ -1,0 +1,49 @@
+/******************************************************************************
+ * MKFollowMe for Mobile (J2ME MIDlet)
+ * 
+ * A J2ME MIDlet for GPS enabled mobile devices to let the MikroKopter follow 
+ * the devices' position. Additionally waypoints can be selected on a map (OSM)
+ * and sent to the MK via Bluetooth connection.
+ *
+ * Project Start: June 2009
+ *
+ * Author:        Armand Tschanz (armand@tschanz.com)
+ * 
+ * Licence:       http://creativecommons.org/licenses/by-nc-sa/2.5/ch/
+ *                (Creative Commons: Attribution / Noncommercial / Share Alike) 
+ *
+ * Disclaimer:    Use at your own risk!
+ *
+ * Credits:       Holger & Ingo for the MikroKopter project (www.mikrokopter.de)
+ *                All the community members supporting this great project!
+ *
+ ******************************************************************************/
+ 
+
+*** Features:
+ - dragable / zoomable map using online map data from the OSM project (www.openstreetmap.org)
+ - shows position of mobile device and MK on map
+ - follow-me function (for GPS enabled devices) 
+ - select waypoints on map and send them to the MK
+ - connects to MK via Bluetooth / serial port 
+
+
+*** Install/Usage:
+ - Just send the JAR file to your J2ME capable mobile device and install it. 
+ - Tested only with Nokia N95 so far.
+
+
+*** ToDo:
+ - Better code documentation.
+ - Test on more devices.
+
+
+*** ChangeLog:
+ 1.00 - First published version.
+ 1.01 - GPS / Bluetooth API decoupled, should work also on devices without JSR-179 / JSR-82 now.
+      - Shows home position & operation radius (yellow)
+ 1.02 - Settings Screen
+ 1.03 - WP tolerance radius to 0 when in follow me mode
+      - Mapped game actions (GAME_A / GAME_B / GAME_C) for zooming (in / out / center)
+ 1.04 - Shows scale on map
+      - Operation radius corrected
