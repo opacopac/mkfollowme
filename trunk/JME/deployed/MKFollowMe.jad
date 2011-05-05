@@ -1,0 +1,9 @@
+MIDlet-1: MKFollowMe,/icon_48x48.png,com.tschanz.mkfollowme.MKFollowMe
+MIDlet-Icon: /icon_48x48.png
+MIDlet-Jar-Size: 86438
+MIDlet-Jar-URL: MKFollowMe.jar
+MIDlet-Name: FollowMe for Mobile
+MIDlet-Vendor: -
+MIDlet-Version: 1.04
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
