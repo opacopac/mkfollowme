@@ -1,0 +1,56 @@
+/******************************************************************************
+ * OSM map client library & demo MIDlet for mobile devices (J2ME)
+ * 
+ * An OSM map client library & demo MIDlet for mobile devices (J2ME) with
+ * included tile cache. Can be used to develop own map based mobile apps. 
+ *
+ * Project Start: June 2009
+ *
+ * Author:        Armand Tschanz (armand@tschanz.com)
+ * 
+ * Licence:       http://creativecommons.org/licenses/by-nc-sa/2.5/ch/
+ *                (Creative Commons: Attribution / Noncommercial / Share Alike)
+ *
+ * Disclaimer:    Use at your own risk!
+ *
+ * Credits:       The awesome OpenStreetMap project (www.openstreetmap.org)
+ *                All the community members supporting this great project!
+ *                Nikolay Klimchuk for the Float11 lib (http://henson.newmail.ru) 
+ *
+ ******************************************************************************/
+ 
+
+*** Features:
+ - dragable / zoomable map using map data from the OSM project (www.openstreetmap.org)
+ - tile cache for storing once downloaded tiles on the mobile device
+ - simple map drawing functionality for dots and lines using lat/lon coordinates 
+
+
+*** Install/Usage:
+ - Just send the JAR file to your J2ME capable mobile device and install it. 
+ - Tested only with Nokia N95 so far.
+ - Short code example for the MIDlet paint method (see also class OsmDemoCanvas):
+
+	protected void paint(Graphics g)
+	{
+		LatLon mapCoordinates = new LatLon(latitude, longitude);                        // define some coordinates
+		LatLon point1Coordinates = new LatLon(latitude2, longitude2);                   // .
+		LatLon point2Coordinates = new LatLon(latitude3, longitude3);                   // .
+		
+		mapPosition = new OsmPosition(zoomlevel, mapCoordinates);                       // .
+		OsmMapPainter.drawMap(g, mapPosition);                                          // draw map on graphics 'g' 
+		
+		OsmMapPainter.drawPositionMark(g, mapCoordinates, point1Coordinates, 0x00FF00); // draw 2 dots, 1 line and the crosshair
+		OsmMapPainter.drawPositionMark(g, mapCoordinates, point2Coordinates, 0x00FF00); // onto the map
+		OsmMapPainter.drawLine(g, mapCoordinates, point1Coordinates, point2Coordinates, 0x00FF00);
+		OsmMapPainter.drawCrossHair(g);                                                 // .
+	}
+	
+
+*** ToDo:
+ - Better code documentation.
+ - Test on more devices.
+
+
+*** ChangeLog:
+ - 1.00 First published version.
