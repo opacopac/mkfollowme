@@ -1,0 +1,73 @@
+/******************************************************************************
+ * MKLib for Mobile (J2ME)
+ * 
+ * A J2ME library to communicate with the MikroKopter via Bluetooth / serial
+ * connection.
+ *
+ * Project Start: June 2009
+ *
+ * Author:        Armand Tschanz (armand@tschanz.com)
+ * 
+ * Licence:       http://creativecommons.org/licenses/by-nc-sa/2.5/ch/
+ *                (Creative Commons: Attribution / Noncommercial / Share Alike) 
+ *
+ * Disclaimer:    Use at your own risk!
+ *
+ * Credits:       Holger & Ingo for the MikroKopter project (www.mikrokopter.de)
+ *                All the community members supporting this great project!
+ *
+ ******************************************************************************/
+ 
+
+*** Supported MK commands (->) / responses (<-):
+
+ Common:
+  (none implemented yet)
+ 
+ FlightCtrl:
+  (none implemented yet)
+ 
+ NaviCtrl:
+  -> o: ReadOsdDataCommand
+  <- O: ReadOsdDataResponse
+  -> x: ReadWayPointCommand
+  <- X: ReadWayPointResponse
+  -> u: RedirectUartCommand
+  -> z: SerialLinkTestCommand
+  <- Z: SerialLinkTestResponse
+  -> s: SetTargetPositionCommand
+  -> w: WriteWayPointCommand
+  <- W: WriteWayPointResponse
+  (more to come)
+ 
+ MK3Mag:
+  (none implemented yet)
+
+
+*** Install/Usage:
+ - Just include the JAR file (or link the sources) to the build path of your J2ME project.
+ - Short code example (send target position):
+
+     MKCommunicator myCommunicator = new MKCommunicator(connection);  // open stream connection
+     myCommunicator.addListener(this);                                // add as listener (to get notified when a response arrives)
+     
+     WayPoint wp = new WayPoint();                                    // define waypoint
+     wp.Position.status = GpsPosStatus.NewData;                       // .
+     wp.Position.latitude = (int)(latitude * 10000000);               // .
+     wp.Position.longitude = (int)(longitude * 10000000);             // .
+     wp.ToleranceRadius = 1;                                          // .
+     wp.HoldTime = 5;                                                 // .
+     
+     myCommand = new SetTargetPositionCommand();                      // send command
+     cmd.setWayPoint(wp);                                             // .
+     cmd.send(this.communicator);                                     // .
+
+
+*** ToDo:
+ - Support all commands.
+ - Better code documentation.
+
+
+*** ChangeLog:
+ - 1.00 First published version.
+ 
